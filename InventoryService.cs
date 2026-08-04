@@ -30,9 +30,30 @@ public class InventoryService
     {
         var boxes = await _repository.GetAllAsync();
         var box = boxes.FirstOrDefault(b => b.Id == boxId);
+
         if (box == null)
             throw new InvalidOperationException($"Box with ID '{boxId}' not found.");
+
         box.AddItem(itemName, quantity);
-        await _repository.AddAsync(box);
+
+        // Use UpdateAsync instead of AddAsync
+        await _repository.UpdateAsync(box);
+    }
+
+    // New: Remove an item from a box
+    public async Task RemoveItemFromBoxAsync(Guid boxId, string itemName, int quantity)
+    {
+        var boxes = await _repository.GetAllAsync();
+        var box = boxes.FirstOrDefault(b => b.Id == boxId)
+            ?? throw new InvalidOperationException($"Box with ID '{boxId}' not found.");
+
+        box.RemoveItem(itemName, quantity);
+        await _repository.UpdateAsync(box);
+    }
+
+    // New: Delete an entire box
+    public async Task DeleteBoxAsync(Guid boxId)
+    {
+        await _repository.DeleteAsync(boxId);
     }
 }

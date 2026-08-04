@@ -1,11 +1,16 @@
 [
   {
-    "Id": "c5a6888e-cb54-47e0-b92e-14d22d5d0c9c",
+    "Id": "470eb408-9ff3-48f2-a0d1-36c8a708cbf9",
     "Name": "Box1",
     "Location": {
       "Aisle": "A1",
       "Shelf": "S1"
     },
-    "Items": []
+    "Items": [
+      {
+        "Name": "Test_item",
+        "Quantity": 1
+      }
+    ]
   }
 ]

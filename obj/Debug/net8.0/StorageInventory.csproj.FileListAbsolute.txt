@@ -12,3 +12,18 @@ C:\Programerings leking\Lagerbod bibliotek\StorageInventory\obj\Debug\net8.0\ref
 C:\Programerings leking\Lagerbod bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.pdb
 C:\Programerings leking\Lagerbod bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.genruntimeconfig.cache
 C:\Programerings leking\Lagerbod bibliotek\StorageInventory\obj\Debug\net8.0\ref\StorageInventory.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0\StorageInventory.exe
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0\StorageInventory.deps.json
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0\StorageInventory.runtimeconfig.json
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0\StorageInventory.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0\StorageInventory.pdb
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.AssemblyInfoInputs.cache
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.AssemblyInfo.cs
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.csproj.CoreCompileInputs.cache
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.sourcelink.json
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\refint\StorageInventory.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.pdb
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.genruntimeconfig.cache
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\ref\StorageInventory.dll

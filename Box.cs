@@ -1,10 +1,11 @@
 ﻿using StorageInventory.Domain.ValueObjects;
+using System.Text.Json.Serialization;
 
 namespace StorageInventory.Domain;
 
 public class Box
 {
-    private readonly List<Item> _items = new();
+    private readonly List<Item> _items;
 
     public Guid Id { get; }
     public string Name { get; private set; }
@@ -17,7 +18,18 @@ public class Box
         Id = Guid.NewGuid();
         Name = name;
         Location = location;
+        _items = new();
     }
+
+    [JsonConstructor]
+    public Box(Guid id, string name, Location location, IReadOnlyCollection<Item>? items)
+    {
+        Id = id;
+        Name = name;
+        Location = location;
+        _items = items?.ToList() ?? new List<Item>();
+    }
+
     public void AddItem(string name, int quantity)
     {
         var existing = _items.FirstOrDefault(i => i.Name == name);
