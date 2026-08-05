@@ -10,6 +10,10 @@
       {
         "Name": "Test_item",
         "Quantity": 1
+      },
+      {
+        "Name": "Test_item2",
+        "Quantity": 1
       }
     ]
   }

@@ -27,3 +27,7 @@ C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\ref
 C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.pdb
 C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.genruntimeconfig.cache
 C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\ref\StorageInventory.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0\Spectre.Console.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0\Spectre.Console.Ansi.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageInventory.csproj.AssemblyReference.cache
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0\StorageI.E548B984.Up2Date

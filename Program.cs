@@ -1,45 +1,79 @@
-﻿using StorageInventory.Application;
+﻿using Spectre.Console;
+using StorageInventory.Application;
 using StorageInventory.Infrastructure;
+using StorageInventory.Domain;
 
 var repository = new JsonInventoryRepository();
 var service = new InventoryService(repository);
 
 while (true)
 {
-    Console.WriteLine("1. Create box");
-    Console.WriteLine("2. Delete box");
-    Console.WriteLine("3. Add item to box");
-    Console.WriteLine("4. Remove item from box");
-    Console.WriteLine("5. List boxes");
-    Console.WriteLine("6. Exit");
-    var choice = Console.ReadLine();
+    Console.Clear();
+
+    AnsiConsole.Write(
+        new FigletText("Storage Inventory")
+            .Centered()
+            .Color(Color.Gold1));
+
+    var choice = AnsiConsole.Prompt(
+        new SelectionPrompt<string>()
+            .Title("[blue]What would you like to do?[/]")
+            .PageSize(10)
+            .HighlightStyle(new Style(foreground: Color.Gray))
+            .AddChoices(new[]
+            {
+                "View all boxes",
+                "Add a new box",
+                "Add item to box",
+                "Remove item from box",
+                "Remove box",
+                "Exit"
+            }));
     switch (choice)
     {
-        case "1":
-            await CreateBox();
-            break;
-        case "2":
-            await DeleteBox();
-            break;
-        case "3":
-            await AddItem();
-            break;
-        case "4":
-            await RemoveItem();
-            break;
-        case "5":
+        case "View all boxes":
             await ListBoxes();
+            Pause();
             break;
-        case "6":
+        case "Add a new box":
+            await CreateBox();
+            Pause();
+            break;
+        case "Add item to box":
+            await AddItem();
+            Pause();
+            break;
+        case "Remove item from box":
+            await RemoveItem();
+            Pause();
+            break;
+        case "Remove box":
+            await DeleteBox();
+            Pause();
+            break;
+        case "Exit":
+            AnsiConsole.MarkupLine("[red]Exiting...[/]");
             return;
-        default:
-            Console.WriteLine("Invalid choice, try again.");
-            break;
     }
+}
+
+void Pause()
+{
+    AnsiConsole.MarkupLine("Press [yellow]Enter[/] to continue...");
+    Console.ReadLine();
 }
 async Task CreateBox()
 {
+    var boxes = (await service.GetAllAsync()).ToList();
+
     var name = ReadString("Enter Box Name");
+
+    if (boxes.Any(b => b.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+    {
+        Console.WriteLine($"A box named '{name}' already exists.");
+        return;
+    }
+
     var aisle = ReadString("Enter aisle");
     var shelf = ReadString("Enter shelf");
 
@@ -47,22 +81,14 @@ async Task CreateBox()
 }
 async Task AddItem()
 {
-var boxes = await service.GetAllAsync();
+    var box = await SelectBoxByNameAsync();
+    if (box is null)
+        return;
 
-foreach (var box in boxes)
-{
-    Console.WriteLine($"{box.Name} - {box.Id}");
-}
-var idInput = ReadString("Enter box id");
-if (!Guid.TryParse(idInput, out var boxId))
-{
-    Console.WriteLine("Invalid box id");
-    return;
-}
-var itemName =ReadString("Enter item name" );
-int quantityInput = int.TryParse(ReadString("Enter quantity (default 1)"), out var q) ? q : 1;
+    var itemName = ReadString("Enter item name");
+    int quantityInput = int.TryParse(ReadString("Enter quantity (default 1)"), out var q) ? q : 1;
 
-await service.AddItemToBoxAsync(boxId, itemName, quantityInput);
+    await service.AddItemToBoxAsync(box.Id, itemName, quantityInput);
 }
 async Task ListBoxes()
 {
@@ -104,18 +130,37 @@ async Task RemoveItem()
 }
 async Task DeleteBox()
 {
-    var boxes = await service.GetAllAsync();
+    var box = await SelectBoxByNameAsync();
+    if (box is null)
+        return;
+
+    await service.DeleteBoxAsync(box.Id);
+}
+async Task<Box?> SelectBoxByNameAsync()
+{
+    var boxes = (await service.GetAllAsync()).ToList();
+
+    if (boxes.Count == 0)
+    {
+        Console.WriteLine("No boxes found.");
+        return null;
+    }
+
     foreach (var box in boxes)
     {
-        Console.WriteLine($"{box.Name} - {box.Id}");
+        Console.WriteLine($"{box.Name}");
     }
-    var idInput = ReadString("Enter box id");
-    if (!Guid.TryParse(idInput, out var boxId))
+
+    var name = ReadString("Enter box name");
+    var selectedBox = boxes.FirstOrDefault(b =>
+        b.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+
+    if (selectedBox == null)
     {
-        Console.WriteLine("Invalid box id");
-        return;
+        Console.WriteLine($"No box named '{name}' was found.");
     }
-    await service.DeleteBoxAsync(boxId);
+
+    return selectedBox;
 }
 
 static string ReadString(string message)

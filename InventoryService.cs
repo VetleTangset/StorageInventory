@@ -17,6 +17,11 @@ public class InventoryService
     // Method for creating a new box
     public async Task CreateBoxAsync(string name, string aisle, string shelf)
     {
+        var boxes = await _repository.GetAllAsync();
+
+        if (boxes.Any(b => b.Name.Equals(name, StringComparison.OrdinalIgnoreCase)))
+            throw new InvalidOperationException($"A box named '{name}' already exists.");
+
         var box = new Box(name, new(aisle, shelf));
         await _repository.AddAsync(box);
     }
