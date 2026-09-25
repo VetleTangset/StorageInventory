@@ -3,10 +3,12 @@ using StorageInventory.Domain;
 
 namespace StorageInventory.Infrastructure;
 
+// Implementation of the inventory repository using JSON file storage
 public class JsonInventoryRepository : IInventoryRepository
 {
     private const string FileName = "inventory.json";
 
+    // Adds a new box to the inventory
     public async Task AddAsync(Box box)
     {
         var boxes = (await GetAllAsync()).ToList();
@@ -14,7 +16,7 @@ public class JsonInventoryRepository : IInventoryRepository
         var json = JsonSerializer.Serialize(boxes, new JsonSerializerOptions { WriteIndented = true });
         await File.WriteAllTextAsync(FileName, json);
     }
-
+    // Updates an existing box in the inventory
     public async Task UpdateAsync(Box box)
     {
         var boxes = (await GetAllAsync()).ToList();
@@ -26,7 +28,7 @@ public class JsonInventoryRepository : IInventoryRepository
             await File.WriteAllTextAsync(FileName, json);
         }
     }
-
+    // Deletes a box from the inventory by its ID
     public async Task DeleteAsync(Guid boxId)
     {
         var boxes = (await GetAllAsync()).ToList();
@@ -39,6 +41,7 @@ public class JsonInventoryRepository : IInventoryRepository
         }
     }
 
+    // Retrieves all boxes from the inventory
     public async Task<IEnumerable<Box>> GetAllAsync()
     {
         if (!File.Exists(FileName))

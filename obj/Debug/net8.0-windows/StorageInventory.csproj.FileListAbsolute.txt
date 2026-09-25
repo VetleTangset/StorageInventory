@@ -1,0 +1,15 @@
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\StorageInventory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\StorageInventory.AssemblyInfoInputs.cache
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\StorageInventory.AssemblyInfo.cs
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\StorageInventory.csproj.CoreCompileInputs.cache
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\StorageInventory.sourcelink.json
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0-windows\StorageInventory.exe
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0-windows\StorageInventory.deps.json
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0-windows\StorageInventory.runtimeconfig.json
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0-windows\StorageInventory.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\bin\Debug\net8.0-windows\StorageInventory.pdb
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\StorageInventory.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\refint\StorageInventory.dll
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\StorageInventory.pdb
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\StorageInventory.genruntimeconfig.cache
+C:\Programerings_leking\Lagerbod_bibliotek\StorageInventory\obj\Debug\net8.0-windows\ref\StorageInventory.dll

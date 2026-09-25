@@ -1,11 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "BQ/AQ0ljF9s=",
+  "dgSpecHash": "RY4A1OZ/UJw=",
   "success": true,
   "projectFilePath": "C:\\Programerings_leking\\Lagerbod_bibliotek\\StorageInventory\\StorageInventory.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vetlu\\.nuget\\packages\\spectre.console\\0.57.2\\spectre.console.0.57.2.nupkg.sha512",
-    "C:\\Users\\vetlu\\.nuget\\packages\\spectre.console.ansi\\0.57.2\\spectre.console.ansi.0.57.2.nupkg.sha512"
+    "C:\\Users\\vetlu\\.nuget\\packages\\spectre.console.ansi\\0.57.2\\spectre.console.ansi.0.57.2.nupkg.sha512",
+    "C:\\Users\\vetlu\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.31\\microsoft.netcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\vetlu\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.31\\microsoft.windowsdesktop.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\vetlu\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.31\\microsoft.aspnetcore.app.ref.8.0.31.nupkg.sha512",
+    "C:\\Users\\vetlu\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.31\\microsoft.netcore.app.host.win-x64.8.0.31.nupkg.sha512"
   ],
   "logs": []
 }

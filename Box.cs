@@ -13,6 +13,7 @@ public class Box
 
     public IReadOnlyCollection<Item> Items => _items.AsReadOnly();
 
+    // Creates a new box with a fresh Id
     public Box(string name, Location location)
     {
         Id = Guid.NewGuid();
@@ -21,6 +22,7 @@ public class Box
         _items = new();
     }
 
+    // Used for deserialization, to rebuild an existing box (keeps original Id)
     [JsonConstructor]
     public Box(Guid id, string name, Location location, IReadOnlyCollection<Item>? items)
     {
@@ -30,6 +32,7 @@ public class Box
         _items = items?.ToList() ?? new List<Item>();
     }
 
+    // Increase quantity if item already exists, otherwise add it
     public void AddItem(string name, int quantity)
     {
         var existing = _items.FirstOrDefault(i => i.Name == name);
@@ -41,6 +44,7 @@ public class Box
         _items.Add(new Item(name, quantity));
     }
 
+    // Remove an item from the box
     public void RemoveItem(string name, int quantity)
     {
         var existing = _items.FirstOrDefault(i => i.Name == name);

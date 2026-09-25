@@ -45,7 +45,7 @@ public class InventoryService
         await _repository.UpdateAsync(box);
     }
 
-    // New: Remove an item from a box
+    // Remove an item from a box
     public async Task RemoveItemFromBoxAsync(Guid boxId, string itemName, int quantity)
     {
         var boxes = await _repository.GetAllAsync();
@@ -56,7 +56,7 @@ public class InventoryService
         await _repository.UpdateAsync(box);
     }
 
-    // New: Delete an entire box
+    // Delete an entire box
     public async Task DeleteBoxAsync(Guid boxId)
     {
         await _repository.DeleteAsync(boxId);

@@ -2,6 +2,7 @@
 
 namespace StorageInventory.Infrastructure;
 
+// Interface for the inventory repository, defining methods for adding, updating, deleting, and retrieving boxes
 public interface IInventoryRepository
 {
     Task AddAsync(Box box);

@@ -1,4 +1,6 @@
 ﻿namespace StorageInventory.Domain;
+
+// Represents an item stored in a box, with a name and quantity
 public class Item
 {
     public string Name { get; }

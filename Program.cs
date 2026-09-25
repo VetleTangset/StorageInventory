@@ -3,6 +3,7 @@ using StorageInventory.Application;
 using StorageInventory.Infrastructure;
 using StorageInventory.Domain;
 
+// Entry point of the Storage Inventory application
 var repository = new JsonInventoryRepository();
 var service = new InventoryService(repository);
 
@@ -15,6 +16,7 @@ while (true)
             .Centered()
             .Color(Color.Gold1));
 
+    // Display the main menu and prompt the user for an action
     var choice = AnsiConsole.Prompt(
         new SelectionPrompt<string>()
             .Title("[blue]What would you like to do?[/]")
@@ -29,6 +31,8 @@ while (true)
                 "Remove box",
                 "Exit"
             }));
+
+    // Handle the user's choice and call the appropriate method
     switch (choice)
     {
         case "View all boxes":
@@ -56,12 +60,14 @@ while (true)
             return;
     }
 }
-
+// Pauses the console until the user presses Enter
 void Pause()
 {
     AnsiConsole.MarkupLine("Press [yellow]Enter[/] to continue...");
     Console.ReadLine();
 }
+
+// Prompts the user to create a new box and adds it to the inventory
 async Task CreateBox()
 {
     var boxes = (await service.GetAllAsync()).ToList();
@@ -79,6 +85,8 @@ async Task CreateBox()
 
     await service.CreateBoxAsync(name, aisle, shelf);
 }
+
+// Adds an item to a selected box
 async Task AddItem()
 {
     var box = await SelectBoxByNameAsync();
@@ -90,6 +98,8 @@ async Task AddItem()
 
     await service.AddItemToBoxAsync(box.Id, itemName, quantityInput);
 }
+
+// Lists all boxes and their items
 async Task ListBoxes()
 {
     var boxes = await service.GetAllAsync();
@@ -104,6 +114,8 @@ async Task ListBoxes()
         }
     }
 }
+
+// Removes an item from a selected box
 async Task RemoveItem()
 {
     var boxes = await service.GetAllAsync();
@@ -128,6 +140,8 @@ async Task RemoveItem()
         Console.WriteLine(ex.Message);
     }
 }
+
+// Deletes a selected box from the inventory
 async Task DeleteBox()
 {
     var box = await SelectBoxByNameAsync();
@@ -136,6 +150,8 @@ async Task DeleteBox()
 
     await service.DeleteBoxAsync(box.Id);
 }
+
+// Prompts the user to select a box by name and returns the selected box or null if not found
 async Task<Box?> SelectBoxByNameAsync()
 {
     var boxes = (await service.GetAllAsync()).ToList();
@@ -163,6 +179,7 @@ async Task<Box?> SelectBoxByNameAsync()
     return selectedBox;
 }
 
+// Reads a string input from the console with a prompt message
 static string ReadString(string message)
 {
     Console.Write($"{message}: ");
